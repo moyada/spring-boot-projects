@@ -1,0 +1,66 @@
+group 'com.xyk'
+version '1.0'
+
+buildscript {
+	ext {
+		springBootVersion = '1.4.0.RELEASE'
+	}
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'mySpringBoot'
+	version = '1.0'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	// 自定义中央仓库
+	// maven {
+	// name 'Custom Maven Repository',
+	// url 'http://repository.forge.cloudbees.com/release/')
+	// }
+}
+
+configurations {
+    providedRuntime
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-aop')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-amqp')
+    compile('org.springframework:spring-context-support:4.3.2.RELEASE')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb:1.4.0.RELEASE')
+    compile('org.springframework.boot:spring-boot-starter-data-redis:1.4.0.RELEASE')
+    compile('org.quartz-scheduler:quartz:2.2.1')
+    compile('org.mongodb.morphia:morphia:1.2.1')
+    // compile('org.springframework.amqp:spring-rabbit:1.6.2.RELEASE')
+    
+	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+	compile('org.springframework.boot:spring-boot-starter')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+
+eclipse {
+	classpath {
+		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+	}
+}
