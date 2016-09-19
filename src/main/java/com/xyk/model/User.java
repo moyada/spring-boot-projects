@@ -22,6 +22,12 @@ import org.mongodb.morphia.annotations.Reference;
 import org.mongodb.morphia.annotations.Transient;
 import org.mongodb.morphia.utils.IndexType;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.7
+ * @description mongo实体映射文件
+ */
 @Entity(value = "users", noClassnameStored = true) // 声明集合，可指定集合名(默认为类名)
 // 指定索引，value为索引名,field为索引字段($**匹配所有成员)
 @Indexes({ @Index(fields = @Field(value = "age", type = IndexType.ASC)),

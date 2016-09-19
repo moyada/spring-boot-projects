@@ -23,10 +23,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.7
+ * @description 消息中间件配置文件
+ */
 @Configuration
+// 启用RabbitMQ
 @EnableRabbit
 public class AmqpConfig {
 
+	// 注入yaml数据
 	@Value("${spring.rabbitmq.host}")
 	private String rabbitmqHost;
 	@Value("${spring.rabbitmq.port}")
@@ -69,6 +77,7 @@ public class AmqpConfig {
 		return template;
 	}
 
+	// 获得连接工厂
 	@Bean
 	public ConnectionFactory connectionFactory() {
 		CachingConnectionFactory connectionFactory = new CachingConnectionFactory(rabbitmqHost, rabbitmqPort);
@@ -82,6 +91,14 @@ public class AmqpConfig {
 	@Resource(name = "amqpListener")
 	private ChannelAwareMessageListener amqpListener;
 
+	/**
+	 * @author xueyikang
+	 * @description 配置消息处理方式
+	 *
+	 * @param
+	 * @return
+	 * @throws
+	 */
 	@Bean
 	public SimpleMessageListenerContainer myContainer(ConnectionFactory connectionFactory,
 			MessageListenerAdapter listenerAdapter) {
@@ -111,6 +128,7 @@ public class AmqpConfig {
 		return new Receiver();
 	}
 
+	// 配置消息监听器
 	@Bean
 	MessageListenerAdapter listenerAdapter(Receiver receiver) {
 		return new MessageListenerAdapter(receiver, "receiverMessage");

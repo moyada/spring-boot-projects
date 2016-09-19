@@ -5,6 +5,12 @@ import org.springframework.stereotype.Component;
 
 import com.xyk.annotation.SysLog;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.7
+ * @description 异步处理程序
+ */
 @Component
 public class AsyncWorker {
 	

@@ -2,7 +2,37 @@ spring:
   aop:
     exposeProxy: true
   data:
-mongodb:
-  host: 127.0.0.1
-  port: 27017
-  database: mydb
+  
+  #mongodb configuration
+  mongodb:
+    host: 127.0.0.1
+    port: 27017
+    database: mydb
+    
+  #redis configuration
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    pool:
+      max-idle: 8
+      min-idle: 0
+      max-active: 8
+      max-wait: -1
+  #mq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+    myExchange: myExchange
+    myQueue: myQueue
+    myRoutingKey: myRoutingKey
+    myConsumer: true
+    
+security:
+  ignored: /*
+  sessions: always
+  user:
+    name: admin
+    password: admin

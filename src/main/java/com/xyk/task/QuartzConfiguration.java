@@ -7,6 +7,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.7
+ * @description Quartz≈‰÷√
+ */
 @Configuration 
 public class QuartzConfiguration {
 	@Autowired

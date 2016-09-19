@@ -15,7 +15,14 @@ import org.springframework.context.annotation.Scope;
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.7
+ * @description mongodb框架Morphia的配置工厂
+ */
 @Configuration
+// 必须拥有此文件
 @ConditionalOnClass(Mongo.class)
 public class MorphiaFactory {
 
@@ -35,10 +42,18 @@ public class MorphiaFactory {
 		}
 	}
 
+	/**
+	 * @author xueyikang
+	 * @description 配置morphia实例，获得DataStore
+	 *
+	 * @param
+	 * @return
+	 * @throws
+	 */
 	@Bean
 	@Qualifier("Datastore")
 	@ConditionalOnMissingBean
-	@Scope
+	@Scope // 配置单例
 	public Datastore getDatastore() {
 		mongo = new MongoClient(host, port);
 		Morphia morphia = new Morphia();

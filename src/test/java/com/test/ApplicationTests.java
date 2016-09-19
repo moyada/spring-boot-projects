@@ -20,6 +20,12 @@ import com.xyk.Application;
 import com.xyk.mq.Producer;
 import com.xyk.redis.RedisTemplateFactory;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.8
+ * @description Junit≤‚ ‘≥Ã–Ú
+ */
 @SuppressWarnings("deprecation")
 @RunWith(SpringRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)

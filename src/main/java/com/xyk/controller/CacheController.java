@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xyk.service.CacheService;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.7
+ * @description »º´æ¿ØÖÆÆ÷
+ */
 @RestController
 @RequestMapping("cache")
 public class CacheController {

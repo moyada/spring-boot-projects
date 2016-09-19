@@ -6,9 +6,23 @@ import org.springframework.stereotype.Component;
 
 import com.rabbitmq.client.Channel;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.7
+ * @description 消息监听类
+ */
 @Component("amqpListener")
 public class AmqpListener implements ChannelAwareMessageListener {
 
+	/**
+	 * @author xueyikang
+	 * @description 根据接受消息的数据及来源作出处理
+	 *
+	 * @param
+	 * @return
+	 * @throws
+	 */
 	@Override
 	public void onMessage(Message message, Channel channel) throws Exception {
 		// TODO Auto-generated method stub

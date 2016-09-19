@@ -10,6 +10,12 @@ import org.springframework.stereotype.Component;
 
 import com.xyk.async.AsyncWorker;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.7
+ * @description SpringSechdule配置
+ */
 // @Component
 public class SpringScheduleTask {
 	private final AtomicInteger counter = new AtomicInteger(0);
@@ -19,6 +25,12 @@ public class SpringScheduleTask {
 	@Autowired
 	private AsyncWorker worker;
 
+	/**
+	 * Created by xueyikang on 2016/9/19.
+	 * @version 1.0
+	 * @since  1.7
+	 * @description 具体调度任务，每两秒执行一次
+	 */
 	@Scheduled(fixedRate = 2000)
 	public void tash() throws InterruptedException {
 		for (int i = 0; i < 10; i++) {

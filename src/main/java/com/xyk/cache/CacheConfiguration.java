@@ -18,6 +18,12 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.7
+ * @description 缓存配置文件，此处使用了Redis作为缓存管理
+ */
 @Configuration
 public class CacheConfiguration extends CachingConfigurerSupport {
 
@@ -34,7 +40,15 @@ public class CacheConfiguration extends CachingConfigurerSupport {
         factory.setShared(true);
         return factory;
     }*/
-	
+
+	/**
+	 * @author xueyikang
+	 * @description 缓存key的生成方式
+	 *
+	 * @param
+	 * @return
+	 * @throws
+	 */
 	@Bean
 	public KeyGenerator myKeyGenerator() {
 		// TODO Auto-generated method stub
@@ -59,6 +73,14 @@ public class CacheConfiguration extends CachingConfigurerSupport {
 		return new RedisCacheManager(redisTemplate);
 	}
 
+	/**
+	 * @author xueyikang
+	 * @description 配置缓存模版
+	 *
+	 * @param
+	 * @return
+	 * @throws
+	 */
 	@Bean
 	public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
 		StringRedisTemplate template = new StringRedisTemplate(factory);

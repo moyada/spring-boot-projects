@@ -10,6 +10,12 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
 
+/**
+ * Created by xueyikang on 2016/9/19.
+ * @version 1.0
+ * @since  1.7
+ * @description Redis模版工厂类
+ */
 @Component
 public class RedisTemplateFactory {
 	
@@ -19,6 +25,14 @@ public class RedisTemplateFactory {
 	@SuppressWarnings("rawtypes")
 	private Map<String, RedisTemplate> rTplMap = new HashMap<String, RedisTemplate>();
 
+	/**
+	 * @author xueyikang
+	 * @description 获得对应的redis模版
+	 *
+	 * @param clazz
+	 * @return RedisTemplate
+	 * @throws
+	 */
 	@SuppressWarnings("unchecked")
 	public <T> RedisTemplate<String, T> getJsonRedisTemplate(Class<T> clazz) {
 		String className = clazz.getCanonicalName();
